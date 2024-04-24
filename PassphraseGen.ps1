@@ -5,8 +5,8 @@ function Get-RandomPassphrase {
     #This grabs 3 random words from your word list
     $WordList = Get-Content -Path 'WordList.txt' | Sort-Object {Get-Random} | Select-Object -First 3
     $Delimiter = Get-Random -InputObject '!','@','#','$','%','^','&','*','(',')','?',':','/','.',';','+','='
-    $Number1 = Get-Random -Minimum 10 -Maximum 999
-    $Number2 = Get-Random -Minimum 10 -Maximum 99
+    $Number1 = Get-Random -Minimum 10 -Maximum 99
+    $Number2 = Get-Random -Minimum 100 -Maximum 999
     #Here we take the first two random words, then capitalize them and mash them together, to make a base password
     $Passphrase = ($WordList[0].substring(0,1).ToUpper()+$WordList[0].substring(1).ToLower()) + ($WordList[1].substring(0,1).ToUpper()+$WordList[1].substring(1).ToLower())
     #Now, if the base password is less than 12 characters long, we add a third random word and capitalize it before adding a special character and a 2 or 3 digit random number
